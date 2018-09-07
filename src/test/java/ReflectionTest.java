@@ -10,11 +10,9 @@ public class ReflectionTest {
         ReflectiveClass aClass = new ReflectiveClass(2, "3");
         Method[] allMethods = aClass.getClass().getDeclaredMethods();
         for (Method method : allMethods) {
-            if (Modifier.isPublic(method.getModifiers())) {
-                System.out.println(method);
-                // use the method
-            }
+            System.out.println(method);
         }
+        System.out.println("-");
     }
 
     @Test
@@ -22,10 +20,20 @@ public class ReflectionTest {
         ReflectiveInterface aClass = new ReflectiveClass(2, "3");
         Method[] allMethods = aClass.getClass().getDeclaredMethods();
         for (Method method : allMethods) {
+            System.out.println(method);
+        }
+        System.out.println("-");
+    }
+
+    @Test
+    public void publicOnlyReflection() {
+        ReflectiveClass aClass = new ReflectiveClass(2, "3");
+        Method[] allMethods = aClass.getClass().getDeclaredMethods();
+        for (Method method : allMethods) {
             if (Modifier.isPublic(method.getModifiers())) {
                 System.out.println(method);
-                // use the method
             }
         }
+        System.out.println("-");
     }
 }
